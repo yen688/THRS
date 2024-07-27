@@ -1,0 +1,63 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+header{
+    height: 150px;
+    width:100%;   
+    position: relative;
+    left: 50px;
+    top: 18px;
+    background-image:url(image/牌桌.png) ;  
+    background-repeat:no-repeat;    
+}
+.button {
+    display: flex;
+    justify-content: center;  /* 水平居中 */
+    align-items: center;      /* 垂直居中 */
+    width:170px;  
+    height: 85px; 
+}
+
+h1{
+    color:rgb(255, 233, 125);
+    font-size:54px;      
+}
+h2{
+    color:rgb(139, 190, 255);
+    font-size:28px;
+    height:70px;
+    width:100%;
+    position: relative;
+    left: 5px;
+    top: 10px;
+}
+p{
+    font-size:18px;
+    line-height: 2;
+    position: relative;
+    left: 20px;
+    bottom: 10px;
+}
+.poker div {
+    background-color: #d8e5fc; 
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    margin: 10px; 
+    padding: 10px; 
+    width: 15%; 
+    display: flex; 
+    align-items: center; 
+    flex-direction: row; 
+}
+
+.poker img {
+    width: 250px; 
+    height: auto; 
+    margin-right: 40px; 
+}
+
+.poker h3, .poker p {
+    margin: 5px 0; 
+    font-size: 20px; 
+}
