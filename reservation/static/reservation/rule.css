@@ -13,8 +13,8 @@ header{
 }
 .button {
     display: flex;
-    justify-content: center;  /* 水平居中 */
-    align-items: center;      /* 垂直居中 */
+    justify-content: center;  
+    align-items: center;      
     width:170px;  
     height: 85px; 
 }
@@ -40,24 +40,24 @@ p{
     bottom: 10px;
 }
 .poker div {
-    background-color: #d8e5fc; 
+    background-color: #cbe1ff; 
     border: 1px solid #ccc; 
-    border-radius: 10px; 
+    border-radius: 8px; 
     margin: 10px; 
     padding: 10px; 
-    width: 15%; 
+    width: 50%; 
     display: flex; 
     align-items: center; 
     flex-direction: row; 
 }
 
 .poker img {
-    width: 250px; 
+    width: 150px; 
     height: auto; 
-    margin-right: 40px; 
+    margin-right: 20px; 
 }
 
 .poker h3, .poker p {
     margin: 5px 0; 
-    font-size: 20px; 
+    font-size: 1.2em; 
 }
