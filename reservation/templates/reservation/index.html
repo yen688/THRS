@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
         <title>Reservation</title>
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'reservation/index.css' %}">
     </head>
+    <div class="logo">
+        <img src="{% static 'image/logo.png' %}" alt="logo">
+    </div>
 <body>
-    <h1>Index</h1>
+    <header>
+        <nav class="menu">
+            <a href="rule">Rule</a>
+            <a href="#">米咪咪</a>
+            <a href="#">博弈</a>
+            <a class="now" href="#">NOW</a>
+        </nav>
+    </header>
+    <div class="background"></div>
+    <div class="box box-animation"></div>
+    <h1><b>Texas Hold’em Reservation System</b></h1>
 </body>
 </html>
