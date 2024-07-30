@@ -8,7 +8,7 @@ header{
     position: relative;
     left: 50px;
     top: 18px;
-    background-image:url(image/牌桌.png) ;  
+    background-image:url(../image/牌桌.png) ;  
     background-repeat:no-repeat;    
 }
 .button {
@@ -39,6 +39,10 @@ p{
     left: 20px;
     bottom: 10px;
 }
+.depiction {
+    margin-top: 50px; /* Temporarily highlight the element */
+}
+
 .poker div {
     background-color: #cbe1ff; 
     border: 1px solid #ccc; 
