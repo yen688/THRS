@@ -1,39 +1,80 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
-header{
-    position: fixed;
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed; /* 将 header 固定在顶部 */
     top: 0;
     left: 0;
-    width: 100%;
-    padding: 20px 10px 20px 1200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 99;
+    width: 100%;
+    padding: 20px;
+    background: rgba(47, 47, 45, 0.626);
 }
-.menu a{
-    position: relative;
-    font-size: 25px;
+
+
+.menu a {
+    margin-left: 30px;
+    font-size: 1.5rem;
     font-weight: 700;
     text-decoration: none;
-    margin-left: 30px;
-    color: rgba(255, 255, 255, 0.93);
+    color: rgba(252, 255, 225, 0.93);
 }
-h1{
-    position:relative;
-    top: 590px;
-    left: 400px;
-    width: 900px;
-    font-size: 50px;
-    background: linear-gradient(45deg, #ffc235, #4800ff); /* 渐变颜色 */
+
+.now {
+    font-size: 2rem;
+    color: rgb(250, 231, 231);
+    -webkit-text-stroke: 0.5px #fcff63;
+  
+}
+.logo{
+    margin-left: auto; 
+    z-index: 100;
+    transform: rotate(8deg); 
+}
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+h1 {
+    margin-top: 6.5vh;
+    font-size: 4rem;
+    text-align: center;
+    background: linear-gradient(45deg, #ffc235, #4800ff);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16vw;
+    height: 10vh;
+    background-color: rgb(253, 255, 224);
+    opacity: 0.85;
+    border-radius: 40px;
+    border: 2px solid rgba(255, 249, 73, 0.51);
+    margin-top: 54vh;
+    margin-left: 6vh;
+}
+
 .background {
     position: fixed;
     top: 0;
@@ -45,54 +86,42 @@ h1{
     opacity: 0.85;
     background-position: center; /* 确保图片居中 */
     background-repeat:no-repeat;
+    z-index: -1;
 }
-.logo {
-    position: absolute;
-    top: 0; /* 定位到容器的底部 */
-    left: 0;  /* 定位到容器的左邊 */
-    opacity: 0.85;
-    z-index: 1;
+
+@keyframes change-color {
+    0% {background-color: rgba(235, 206, 254, 0.985);}
+    10% {background-color: rgba(212, 182, 251, 0.893);}
+    20% {background-color: rgba(203, 151, 248, 0.933);}
+    30% {background-color: rgba(177, 132, 250, 0.929);}
+    40% {background-color: rgba(175, 98, 252, 0.916);}
+    50% {background-color: rgba(142, 80, 248, 0.882);}
+    60% {background-color: rgba(133, 76, 255, 0.897);}
+    70% {background-color: rgba(142, 98, 255, 0.889);}
+    80% {background-color: rgb(173, 130, 247);}
+    90% {background-color: rgb(200, 160, 253);}
+    100% {background-color: rgba(208, 185, 249, 0.912);}
 }
-.logo img {
-    width: 35%; /* 确保图片宽度为父容器宽度 */
-    height: auto; /* 确保图片按比例缩放 */
-}
-.menu a.now{
-    color: rgb(248, 250, 219);
-    position:relative;
-    top: 427px;
-    right: 500px;
-    font-size: 47px;
-    -webkit-text-stroke: 1.5px #fcff67;   
-}
-@keyframes change-color{
-    0%{background-color: rgba(235, 206, 254, 0.985);}
-    10%{background-color: rgba(212, 182, 251, 0.893);}
-    20%{background-color: rgba(203, 151, 248, 0.933);}
-    30%{background-color: rgba(177, 132, 250, 0.929);}
-    40%{background-color: rgba(175, 98, 252, 0.916);}
-    50%{background-color: rgba(142, 80, 248, 0.882);}
-    60%{background-color: rgba(133, 76, 255, 0.897);}
-    70%{background-color: rgba(142, 98, 255, 0.889);}
-    80%{background-color: rgb(173, 130, 247);}
-    90%{background-color: rgb(200, 160, 253);}
-    100%{background-color: rgba(208, 185, 249, 0.912);}
-}
-.box {
-    z-index: 10;
-    width: 240px;
-    height: 65px;
-    background-color: rgb(253, 255, 224);
-    position: absolute; 
-    top: 473px; 
-    left: 670px; 
-    opacity: 0.55;
-    border-radius: 40px; 
-    border: 2px solid rgba(255, 249, 73, 0.51);
-}
-.box-animation{
+
+.box-animation {
     animation-name: change-color;
-    animation-duration:3.5s ;
+    animation-duration: 3.5s;
     animation-iteration-count: infinite;
-    width: 240px;
+}
+
+@media (max-width: 600px) {
+    .box {
+        width: 80vw;
+        height: 15vh;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-top: 10vh;
+    }
+
+    .menu a {
+        font-size: 1rem;
+        margin-left: 10px;
+    }
 }
