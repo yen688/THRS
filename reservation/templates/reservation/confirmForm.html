@@ -4,6 +4,12 @@
         <title>Reservation</title>
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'reservation/confirm.css' %}">
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- jQuery Timepicker CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.css">
+         <!-- jQuery Timepicker JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.js"></script>
     </head>
 <body>
     <div class="wrapper">
@@ -11,14 +17,45 @@
             {% csrf_token %}
             <h1> 確認訂位資訊 </h1>
             <div class="input-box">
+                <input type="text" placeholder="{{date}}" name="date" value="{{date}}" readonly>
+            </div>
+            <div class="input-box">
                 <input type="text" placeholder="輸入名稱" name="customer" required>
             </div>
             <div class="input-box">
                 <input type="text" placeholder="輸入手機號碼" name="phone" required>
             </div>
 
+            <div class="input-box">
+                <input type="text" class="timepicker" placeholder="選擇時間" name="time" required>
+            </div>
+
+            <div class="input-box">
+                <select type="text" placeholder="選擇級別" name="level" required>
+                    <option value="1200">級別: 1200</option>
+                    <option value="2300">級別: 2300</option>
+                    <option value="3400">級別: 3400</option>
+                    <option value="6600">級別: 6600</option>
+                </select>
+            </div>
+
             <button type="submit" class="btn">確認</button>
         </form>
     </div>
+    <script>
+        $(document).ready(function(){
+            $('input.timepicker').timepicker({
+                timeFormat: 'H:i',
+                interval: 60,
+                minTime: '18:30',
+                maxTime: '02:30',
+                defaultTime: '11:00',
+                startTime: '00:00',
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true
+            });
+        });
+    </script>
 </body>
 </html>

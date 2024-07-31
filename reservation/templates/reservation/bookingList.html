@@ -1,0 +1,80 @@
+<!-- example_template.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            padding: 70px 200px;
+            width: 50%;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            width: 30%;
+            height: 40px;
+            background: #fff;
+            border: 1px solid #333;
+            outline: none;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>這邊應該會放從選日期那頁傳過來的日期</h1>
+    <h2 id="date">2024-8-30</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Level</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for name, level, time in context %}
+                <tr>
+                    <td>{{ name }}</td>
+                    <td>{{ level }}</td>
+                    <td>{{ time }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <button onclick="redirect()">就是這天</button>
+    <script>
+        function redirect(){
+            var date = document.getElementById('date').innerText;
+            return location.href = '/confirmForm/' + date;
+        }
+    </script>
+</body>
+
+</html>
