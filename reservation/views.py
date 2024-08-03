@@ -9,6 +9,8 @@ def index(request):
 def rule(request):
     return render(request, 'reservation/rule.html')
 
+def calendar(request):
+    return render(request, 'reservation/calendar.html')
 def confirmForm(request,date):
  
     return render(request, 'reservation/confirmForm.html',{'date':date})
