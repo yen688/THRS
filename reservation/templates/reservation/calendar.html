@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'reservation/calendar.css' %}">
+</head>
+<body>
+    <div class="purple-box">
+        <h1>Reservation</h1>
+        <div class="blue-box">
+            <div class="dropdown">
+                <div class="select">
+                    <span class="selected">Select the level</span>
+                    <div class="caret"></div>
+                </div>
+                <ul class="menu">
+                    <li>Framer</li>
+                    <li>Sketch</li>
+                    <li>Invisition</li>
+                    <li class="active">Figma</li>
+                    <li>Adobe XD</li>
+                </ul>
+            </div>
+        </div>
+        <div class="white-box">
+            <div class="calendar-header">
+                <div class="month-year">July 2024</div>
+                    <div class="navigation">
+                        <span class="arrow">&lt;</span>
+                        <span class="arrow">&gt;</span>
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
