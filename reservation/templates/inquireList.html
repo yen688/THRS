@@ -1,0 +1,62 @@
+<!-- example_template.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquire List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            padding: 70px 200px;
+            width: 50%;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            width: 30%;
+            height: 40px;
+            background: #fff;
+            border: 1px solid #333;
+            outline: none;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>查询结果</h1>
+    {% if results %}
+    <ul>
+        {% for row in results %}
+            <li>Name：{{ row.0 }}，Phone：{{ row.1 }}，Date：{{ row.2 }}，Time：{{ row.3 }}，Level：{{ row.4 }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>您未預約</p>
+{% endif %}
+</body>
+</html>
+    
