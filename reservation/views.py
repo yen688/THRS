@@ -1,6 +1,8 @@
 from django.shortcuts import render
 import sqlite3
 import json
+from django.http import HttpResponse
+
 
 # Create your views here.
 def index(request):
@@ -9,10 +11,35 @@ def index(request):
 def rule(request):
     return render(request, 'reservation/rule.html')
 
+def inquireForm(request,phone):
+   return render(request, 'reservation/inquire.html', {'check': phone})
+    
+
+def inquire(request):
+    if request.method == 'POST':
+        phone = request.POST.get('phone')
+        # 連接資料庫
+        conn = sqlite3.connect('db.sqlite3')
+        cursor = conn.cursor()
+        # 查詢phpne reserve資料表
+        cursor.execute('SELECT * FROM Reserve where phone=?', (phone,))
+        # 取得所有資料
+        results = cursor.fetchall()  
+        cursor.close()
+        conn.close()
+        return render(request, 'reservation/inquireList.html',{'results': results})
+
+def inquireList(request):
+
+    return render(request, 'reservation/inquireList.html')    
+
+def mail(request):
+    return render(request, 'reservation/mail.html')
+
 def calendar(request):
     return render(request, 'reservation/calendar.html')
+
 def confirmForm(request,date):
- 
     return render(request, 'reservation/confirmForm.html',{'date':date})
 
 def bookingList(request):
