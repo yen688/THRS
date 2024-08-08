@@ -16,11 +16,20 @@ body {
 .blue-box { 
     width: 390px;
     height: 363px;
-    background-color: #45539D;
+    background-color: #45539dcc;
     border-radius: 15px;
 }
 
+h2{
+    color:#ffffffcc;
+    font-size:40px;
+    font-family:Helvetica, sans-serif;
+    text-align: center;
+    border-top: 20px solid transparent;
+}
+
 .dropdown{
+    font-family: Helvetica, sans-serif;
     min-width: 15em;
     position:relative;
     margin:2em;
@@ -31,12 +40,12 @@ body {
 }
 
 .select{
-    background: #2a2f3b;
+    background: #45539dcc;
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid #2a2f3b;
+    border: 2px solid #ffffffcc;
     border-radius: 10px;
     padding: 1em;
     cursor:pointer;
@@ -44,12 +53,12 @@ body {
 }
 
 .select-clicked{
-    border: 2px solid #26489a;
+    border: 2px solid #fff;
     box-shadow: 0 0 0.8em #26489a;
 }
 
 .select:hover{
-    background:#323741;
+    background:#45539d;
 }
 
 .caret{
@@ -68,11 +77,11 @@ body {
 .menu{
     list-style: none;
     padding: 0.2em 0.5em;
-    background: #323741;
+    background: #fff;
     border: 1px #363a43;
     box-shadow: 0 0.5em 1em rgba(0,0,0,0.2);
     border-radius: 0.5em;
-    color:#9fa5b5;
+    color:rgb(159, 165, 181);
     position:absolute;
     top: 3em;
     left:50%;
@@ -92,11 +101,11 @@ body {
 }
 
 .menu li:hover{
-    background: #2a2d35;
+    background: #45539dcc;
 }
 
 .active{
-    background: #23242a;
+    background: #45539dcc;
 }
 
 .menu-open{
