@@ -4,16 +4,11 @@
         <title>Reservation</title>
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'reservation/inquire.css' %}">
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <!-- jQuery Timepicker CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.css">
-         <!-- jQuery Timepicker JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.js"></script>
+        
     </head>
 <body>
     <div class="wrapper">
-        <form action="/inquire" method="post">
+        <form action="{% url 'inquireList' %}" method="post">
             {% csrf_token %}
             <h1> 查詢預約 </h1>
             <div class="input-box">

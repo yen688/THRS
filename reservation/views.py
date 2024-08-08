@@ -11,11 +11,10 @@ def index(request):
 def rule(request):
     return render(request, 'reservation/rule.html')
 
-def inquireForm(request,phone):
-   return render(request, 'reservation/inquire.html', {'check': phone})
-    
-
 def inquire(request):
+    return render(request, 'reservation/inquireForm.html')
+    
+def inquireList(request):
     if request.method == 'POST':
         phone = request.POST.get('phone')
         # 連接資料庫
@@ -27,11 +26,7 @@ def inquire(request):
         results = cursor.fetchall()  
         cursor.close()
         conn.close()
-        return render(request, 'reservation/inquireList.html',{'results': results})
-
-def inquireList(request):
-
-    return render(request, 'reservation/inquireList.html')    
+        return render(request, 'reservation/inquireList.html',{'results': results})   
 
 def mail(request):
     return render(request, 'reservation/mail.html')
