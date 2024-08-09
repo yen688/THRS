@@ -1,10 +1,9 @@
-<!-- example_template.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inquire List</title>
+    <title>查詢結果列表</title>
     <style>
         * {
             margin: 0;
@@ -12,11 +11,11 @@
             box-sizing: border-box;
         }
         body {
-            padding: 70px 200px;
-            width: 50%;
-            align-items: center;
+            padding: 40px 40px;
+            width: 70%;
+            display: flex;
             justify-content: center;
-            min-height: 100vh;
+            align-items: center;
         }
         table {
             width: 100%;
@@ -28,35 +27,56 @@
             text-align: left;
         }
         th {
-            background-color: #f2f2f2;
+            background-color: #f3c1fb6f;
         }
-        button {
-            width: 30%;
-            height: 40px;
-            background: #fff;
-            border: 1px solid #333;
-            outline: none;
-            border-radius: 40px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            font-size: 16px;
-            color: #333;
-            font-weight: 600;
-
+        h1 {
+        font-size: 50px; 
+        margin-bottom: 10px; 
+        text-align: center; 
+        width: 35%; 
+        display: block; 
+        padding: 50px 10px ; 
+        margin: 10px;
         }
-    </style>
+        h2 {
+            font-size: 45px;
+            color: rgb(188, 70, 252);
+            display: flex;  
+            justify-content: center; 
+        }
+    </style>  
 </head>
 <body>
-    <h1>查询结果</h1>
+    <h1>查詢結果</h1>
     {% if results %}
-    <ul>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Level</th>
+            <th>Operation</th>
+        </tr>
         {% for row in results %}
-            <li>Name：{{ row.0 }}，Phone：{{ row.1 }}，Date：{{ row.2 }}，Time：{{ row.3 }}，Level：{{ row.4 }}</li>
+        <tr>
+            <td>{{ row.1 }}</td>
+            <td>{{ row.2 }}</td>
+            <td>{{ row.3 }}</td>
+            <td>{{ row.4 }}</td>
+            <td>{{ row.5 }}</td>
+            <td>
+                <form action="{% url 'cancelSucess' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="cancel" value="{{ row.0 }}">
+                    <button type="submit"style="width: 70px; height: 25px;background-color: #d4aaffe7; color: rgb(255, 255, 255);">取消預約</button>
+                </form>
+            </td>
+        </tr>
         {% endfor %}
-    </ul>
-{% else %}
-    <p>您未預約</p>
+    </table>
+    {% else %}
+    <h2>&rarr;您未預約</h2>
 {% endif %}
 </body>
 </html>
-    
