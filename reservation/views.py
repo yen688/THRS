@@ -26,7 +26,18 @@ def inquireList(request):
         results = cursor.fetchall()  
         cursor.close()
         conn.close()
-        return render(request, 'reservation/inquireList.html',{'results': results})   
+        return render(request, 'reservation/inquireList.html',{'results': results}) 
+      
+def cancelSucess(request):
+    if request.method == 'POST':
+        cancel = request.POST.get('cancel')
+        conn = sqlite3.connect('db.sqlite3')
+        cursor = conn.cursor()
+        cursor.execute('DELETE FROM Reserve WHERE ID=?', (cancel,))
+        conn.commit()
+        cursor.close()
+        conn.close()
+    return render(request, 'reservation/cancelSucess.html')
 
 def mail(request):
     return render(request, 'reservation/mail.html')

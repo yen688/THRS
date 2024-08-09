@@ -7,6 +7,7 @@ urlpatterns = [
     path('rule', views.rule, name='rule'),
     path('inquire', views.inquire, name='inquire'),
     path('inquireList', views.inquireList, name='inquireList'),
+    path('cancelSucess', views.cancelSucess, name='cancelSucess'),    
     path('mail', views.mail, name='mail'),
     path('calendar', views.calendar, name='calendar'),
     path('confirmForm/<str:date>', views.confirmForm, name='confirmReservation'),
