@@ -4,35 +4,51 @@
     <meta charset="UTF-8">
     <title>Reservation</title>
     {% load static %}
+    <link rel="stylesheet" href="{% static 'reservation/dropdown.css' %}">
     <link rel="stylesheet" href="{% static 'reservation/calendar.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
 </head>
 <body>
     <div class="purple-box">
         <h1>Reservation</h1>
-        <div class="blue-box">
-            <div class="dropdown">
-                <div class="select">
-                    <span class="selected">Select the level</span>
-                    <div class="caret"></div>
-                </div>
-                <ul class="menu">
-                    <li>1200</li>
-                    <li>2300</li>
-                    <li>3400</li>
-                    <li class="active">Figma</li>
-                    <li>Adobe XD</li>
-                </ul>
-            </div>
-        </div>
-        <div class="white-box">
-            <div class="calendar-header">
-                <div class="month-year">July 2024</div>
-                    <div class="navigation">
-                        <span class="arrow">&lt;</span>
-                        <span class="arrow">&gt;</span>
+        <div class="container">
+            <div class="blue-box">
+                <h2>Level</h2>
+                <div class="dropdown">
+                    <div class="select">
+                        <span class="selected">Select the level</span>
+                        <div class="caret"></div>
                     </div>
+                    <ul class="menu">
+                        <li class="active">1200</li>
+                        <li>2300</li>
+                        <li>3400</li>
+                        <li>6600</li>
+                    </ul>
+                </div>
             </div>
+            <div class="calendar">
+                <div class="month">
+                    <span class="month-year"></span>
+                    <span class="prev">&#10094;</span>
+                    <span class="next">&#10095;</span>
+                </div>
+                <div class="weekdays">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="days"></div>
+            </div>            
         </div>
+        <button class="button"><b>Done</b></button>
     </div>
+    <script src="{% static 'java/dropdown.js' %}"></script>
+    <script src="{% static 'java/calendar.js' %}"></script>
 </body>
 </html>

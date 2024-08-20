@@ -1,161 +1,60 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* 讓正方形垂直置中 */
-    margin: 0; /* 去掉默認邊距 */
-}
-
-.purple-box {
-    width: 1250px;
-    height: 800px;
-    background-color: rgba(136, 146, 239, 0.5);
-    border-radius: 15px;
-}
-
-.blue-box { 
-    width: 390px;
-    height: 363px;
-    background-color: #45539D;
-    border-radius: 15px;
-}
-
-.dropdown{
-    min-width: 15em;
-    position:relative;
-    margin:2em;
-}
-
-.dropdown *{
-    box-sizing:border-box;
-}
-
-.select{
-    background: #2a2f3b;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid #2a2f3b;
-    border-radius: 10px;
-    padding: 1em;
-    cursor:pointer;
-    transition: background 0.3s;
-}
-
-.select-clicked{
-    border: 2px solid #26489a;
-    box-shadow: 0 0 0.8em #26489a;
-}
-
-.select:hover{
-    background:#323741;
-}
-
-.caret{
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 6px solid #fff;
-    transition: 0.3s;
-}
-
-.caret-rotate{
-    transform: rotate(180deg);
-}
-
-.menu{
-    list-style: none;
-    padding: 0.2em 0.5em;
-    background: #323741;
-    border: 1px #363a43;
-    box-shadow: 0 0.5em 1em rgba(0,0,0,0.2);
-    border-radius: 0.5em;
-    color:#9fa5b5;
-    position:absolute;
-    top: 3em;
-    left:50%;
-    width:100%;
-    transform: translateX(-50%);
-    opacity: 0;
-    display: none;
-    transition: 0.2s;
-    z-index: 1;
-}
-
-.menu li{
-    padding: 0.7em 0.5em;
-    margin:0.3em 0;
-    border-radius: 0.5em;
-    cursor: pointer;
-}
-
-.menu li:hover{
-    background: #2a2d35;
-}
-
-.active{
-    background: #23242a;
-}
-
-.menu-open{
-    display:block;
-    opacity: 1;
-}
-
-.white-box{
+.calendar {
     width: 502px;
-    height: 497px;
-    background-color:#ffffff;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    padding: 20px;
-    box-sizing: border-box;
+    height: 480px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    margin-top: 20px;
 }
 
-.calendar-header {
+.month {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+    padding: 10px;
+    background: #f7f7f7;
+    border-bottom: 1px solid #ccc;
 }
 
-.month-year {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #000000;
-}
-
-.navigation {
-    display: flex;
-    gap: 10px;
-}
-
-.arrow {
-    cursor: pointer;
-    font-size: 1.5em;
-    color: #000000;
-}
-
-.calendar-grid {
+.weekdays, .days {
     display: grid;
-    grid-template-columns: repeat(7, 64px);
-    grid-template-rows: repeat(auto-fill, 64px);
-    gap: 5px;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    padding: 10px;
 }
 
-.day, .date {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 64px;
-    height: 64px;
-    font-size: 1em;
-    color: #000000;
-}
-
-.day {
+.weekdays div {
     font-weight: bold;
-    border: 1px solid #dcdcdc;  /* 可選：添加邊框以分隔方格 */
+    color: #666;
+}
+
+.days div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.days div:hover {
+    background-color: #f0f0f0;
+}
+
+.days div.active {
+    background-color: #3498db;
+    color: white;
+    border-radius: 50%;
+}
+
+.prev, .next {
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 80vh;
+}
+
+.blue-box,.white-box{
+    margin:50px;
 }
