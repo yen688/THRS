@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查詢結果列表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            padding: 40px 40px;
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f3c1fb6f;
+        }
+        h1 {
+        font-size: 50px; 
+        margin-bottom: 10px; 
+        text-align: center; 
+        width: 35%; 
+        display: block; 
+        padding: 50px 10px ; 
+        margin: 10px;
+        }
+        h2 {
+            font-size: 45px;
+            color: rgb(188, 70, 252);
+            display: flex;  
+            justify-content: center; 
+        }
+    </style>  
+</head>
+<body>
+    <h1>查詢結果</h1>
+    {% if results %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Level</th>
+            <th>Operation</th>
+        </tr>
+        {% for row in results %}
+        <tr>
+            <td>{{ row.1 }}</td>
+            <td>{{ row.2 }}</td>
+            <td>{{ row.3 }}</td>
+            <td>{{ row.4 }}</td>
+            <td>{{ row.5 }}</td>
+            <td>
+                <form action="{% url 'cancelSucess' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="cancel" value="{{ row.0 }}">
+                    <button type="submit"style="width: 70px; height: 25px;background-color: #d4aaffe7; color: rgb(255, 255, 255);">取消預約</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h2>&rarr;您未預約</h2>
+{% endif %}
+</body>
+</html>
