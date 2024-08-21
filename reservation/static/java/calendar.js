@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 selectedDate = new Date(year, month, parseInt(this.textContent));
                 document.querySelectorAll('.days div').forEach(d => d.classList.remove('active'));
                 this.classList.add('active');
+                document.getElementById('date').value = this.textContent+'-'+(month+1)+'-'+year;
+                
             });
         });
     }

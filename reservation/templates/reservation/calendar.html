@@ -12,43 +12,59 @@
 <body>
     <div class="purple-box">
         <h1>Reservation</h1>
-        <div class="container">
-            <div class="blue-box">
-                <h2>Level</h2>
-                <div class="dropdown">
-                    <div class="select">
-                        <span class="selected">Select the level</span>
-                        <div class="caret"></div>
+       
+            <form class="container" action="/bookinglist" method="post">
+                {% csrf_token %}
+                <div class="blue-box">
+                    <h2>Level</h2>
+                    <div class="dropdown">
+                        <select class="select" name="menu" required>
+                            <option value="" disabled selected>Select the level</option>
+                            <option value="1200">1200</option>
+                            <option value="2300">2300</option>
+                            <option value="3400">3400</option>
+                            <option value="6600">6600</option>
+                        </select>
                     </div>
-                    <ul class="menu">
-                        <li class="active">1200</li>
-                        <li>2300</li>
-                        <li>3400</li>
-                        <li>6600</li>
-                    </ul>
                 </div>
-            </div>
-            <div class="calendar">
-                <div class="month">
-                    <span class="month-year"></span>
-                    <span class="prev">&#10094;</span>
-                    <span class="next">&#10095;</span>
-                </div>
-                <div class="weekdays">
-                    <div>Sun</div>
-                    <div>Mon</div>
-                    <div>Tue</div>
-                    <div>Wed</div>
-                    <div>Thu</div>
-                    <div>Fri</div>
-                    <div>Sat</div>
-                </div>
-                <div class="days"></div>
-            </div>            
-        </div>
-        <button class="button"><b>Done</b></button>
-    </div>
+                <div class="calendar">
+                    <div class="month">
+                        <span class="month-year"></span>
+                        <span class="prev">&#10094;</span>
+                        <span class="next">&#10095;</span>
+                    </div>
+                    <div class="weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div class="days"></div>
+                </div>            
+                <input type="hidden" name="date" id="date" value="">
+                <button type="submit" id="submit" class="button" onclick="is_date_null()"><b>Done</b></button>
+            </form>
+  
     <script src="{% static 'java/dropdown.js' %}"></script>
     <script src="{% static 'java/calendar.js' %}"></script>
+    <script>
+        function is_date_null() {
+            var date = document.getElementById("date").value;
+            if (date == "") {
+                alert("Please select the date.");
+                // 重新請求頁面
+                document.getElementById("submit").disabled = true;
+                window.location.reload();
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+    </script>
 </body>
 </html>

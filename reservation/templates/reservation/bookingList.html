@@ -12,11 +12,11 @@
             box-sizing: border-box;
         }
         body {
-            padding: 70px 200px;
-            width: 50%;
-            align-items: center;
+            padding: 40px 40px;
+            width: 70%;
+            display: relative;
             justify-content: center;
-            min-height: 100vh;
+            align-items: center;
         }
         table {
             width: 100%;
@@ -28,53 +28,34 @@
             text-align: left;
         }
         th {
-            background-color: #f2f2f2;
-        }
-        button {
-            width: 30%;
-            height: 40px;
-            background: #fff;
-            border: 1px solid #333;
-            outline: none;
-            border-radius: 40px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            font-size: 16px;
-            color: #333;
-            font-weight: 600;
-
+            background-color: #f3c1fb6f;
         }
     </style>
 </head>
 <body>
-    <h1>這邊應該會放從選日期那頁傳過來的日期</h1>
-    <h2 id="date">2024-8-30</h2>
-    <table>
+    <h1>日期 : {{date}}</h1>
+    <h1>級別 : {{level}}</h1>
+    <br>
+    <table style="width: 50em;">
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Level</th>
                 <th>Time</th>
             </tr>
         </thead>
         <tbody>
-            {% for name, level, time in context %}
-                <tr>
-                    <td>{{ name }}</td>
-                    <td>{{ level }}</td>
-                    <td>{{ time }}</td>
-                </tr>
+            {% for bookinglist in bookinglists %}
+            <tr>
+                <td>{{ bookinglist.name }}</td>
+                <td>{{ bookinglist.time }}</td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>
     <br>
-    <button onclick="redirect()">就是這天</button>
-    <script>
-        function redirect(){
-            var date = document.getElementById('date').innerText;
-            return location.href = '/confirmForm/' + date;
-        }
-    </script>
+    <a href="confirmForm?level={{level}}&date={{date}}">
+        <button>就是這天</button>
+    </a>
 </body>
 
 </html>

@@ -50,12 +50,13 @@ h2{
 .select{
     background: #45539dcc;
     color: #fff;
-    display: flex;
+    display: relative;
     justify-content: space-between;
     align-items: center;
     border: 2px solid #ffffffcc;
     border-radius: 10px;
     padding: 1em;
+    width: 100%;
     cursor:pointer;
     transition: background 0.3s;
 }

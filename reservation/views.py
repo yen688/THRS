@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import sqlite3
-import json
-from django.http import HttpResponse
+from .models import Reserve
+import datetime
 
 
 # Create your views here.
@@ -41,38 +41,26 @@ def cancelSucess(request):
 
 def mail(request):
     return render(request, 'reservation/mail.html')
-
+ 
 def calendar(request):
     return render(request, 'reservation/calendar.html')
 
-def confirmForm(request,date):
-    return render(request, 'reservation/confirmForm.html',{'date':date})
+def confirmForm(request):
+    date = request.GET.get('date')
+    level = request.GET.get('level')
+    return render(request, 'reservation/confirmForm.html',{'date':date, 'level':level})
 
 def bookingList(request):
-    name = []
-    level = []
-    time = []
-    # 連接資料庫
-    conn = sqlite3.connect('db.sqlite3')
-    cursor = conn.cursor()
-    # 查詢reserve資料表
-    cursor.execute('SELECT * FROM Reserve')
-    # 取得所有資料
-    data = cursor.fetchall()
+    if request.method == 'POST':
+        level = request.POST.get('menu')
+        date = request.POST.get('date')
 
-    for i in range(0,len(data)):
-        name.append(data[i][1])
-        level.append(data[i][5])
-        time.append(data[i][4])
+        date = date.split('-')
+        date = date[2]+'-'+date[1]+'-'+date[0]
 
-    # 關閉資料庫連線
-    cursor.close()
-    conn.close()
-
-    combined = zip(name, level, time)
-
+        bookinglists = Reserve.objects.filter(level=level)
     # 傳送資料到bookingList.html
-    return render(request, 'reservation/bookingList.html',{'context':combined})
+    return render(request, 'reservation/bookingList.html',{'bookinglists': bookinglists, 'date':date, 'level':level})
 
 def confirm(request):
     if request.method == 'POST':

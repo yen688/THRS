@@ -10,7 +10,7 @@ urlpatterns = [
     path('cancelSucess', views.cancelSucess, name='cancelSucess'),    
     path('mail', views.mail, name='mail'),
     path('calendar', views.calendar, name='calendar'),
-    path('confirmForm/<str:date>', views.confirmForm, name='confirmReservation'),
+    path('confirmForm', views.confirmForm, name='confirmForm'),
     path('confirm', views.confirm, name='confirm'),
     path('bookinglist', views.bookingList, name='bookingList'),
 ]
