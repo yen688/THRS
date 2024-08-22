@@ -58,7 +58,7 @@ def bookingList(request):
         date = date.split('-')
         date = date[2]+'-'+date[1]+'-'+date[0]
 
-        bookinglists = Reserve.objects.filter(level=level)
+        bookinglists = Reserve.objects.filter(level=level, date=date)
     # 傳送資料到bookingList.html
     return render(request, 'reservation/bookingList.html',{'bookinglists': bookinglists, 'date':date, 'level':level})
 
