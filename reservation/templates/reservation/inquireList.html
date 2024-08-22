@@ -11,7 +11,7 @@
             box-sizing: border-box;
         }
         body {
-            padding: 40px 40px;
+            padding: 30px 40px;
             width: 70%;
             display: flex;
             justify-content: center;
@@ -27,7 +27,7 @@
             text-align: left;
         }
         th {
-            background-color: #f3c1fb6f;
+            background-color: #8892ef69
         }
         h1 {
             font-size: 50px; 
@@ -40,9 +40,13 @@
         }
         h2 {
             font-size: 45px;
-            color: rgb(188, 70, 252);
+            color: rgb(255, 255, 255);
             display: flex;  
             justify-content: center; 
+            background-color: rgba(136, 146, 239, 0.618);
+            border-radius: 10px;
+            width: 30%; /* 設定寬度 */
+            height: 70px;
         }
     </style>  
 </head>
@@ -69,14 +73,14 @@
                 <form action="{% url 'cancelSucess' %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="cancel" value="{{ row.0 }}">
-                    <button type="submit"style="width: 70px; height: 25px;background-color: #d4aaffe7; color: rgb(255, 255, 255);">取消預約</button>
+                    <button type="submit"style="width: 70px; height: 25px;background-color: #787878ae; color: rgb(255, 255, 255);">取消預約</button>
                 </form>
             </td>
         </tr>
         {% endfor %}
     </table>
     {% else %}
-    <h2>&rarr;您未預約</h2>
+    <h2>:您未預約</h2>
 {% endif %}
 </body>
 </html>
